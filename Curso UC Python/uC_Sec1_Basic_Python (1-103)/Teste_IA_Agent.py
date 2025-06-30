@@ -66,7 +66,8 @@ if __name__ == "__main__":
 
     while True:
         print("Ouvindo...")
-        frase = microfone().lower()
+        frase = microfone()
+        frase = frase.lower() if frase else None  # Converte a frase para minúsculas se não for None
         if frase is not None:
             if "sair" in frase or "parar" in frase or "encerrar" in frase or "fechar" in frase or "desligar" in frase or "isso é tudo" in frase:
                 falar("Espero ter ajudado. Até logo!")
