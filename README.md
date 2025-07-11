@@ -1,8 +1,4 @@
-# para subir no github sempre
-# git add .
-# git commit -m  "Adicionando modulos restantes"
-# git push origin main
-https://img.shields.io/badge/:badgeContent
+
 # Olá! Meu nome é Matheus B. Guimaraes 👋
 
 ## Sobre mim
@@ -33,3 +29,8 @@ https://img.shields.io/badge/:badgeContent
 |![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)|
 |![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)|
 |![Vscode](https://img.shields.io/badge/Vscode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)|
+
+# para subir no github sempre
+# git add .
+# git commit -m  "Adicionando modulos restantes"
+# git push origin main
