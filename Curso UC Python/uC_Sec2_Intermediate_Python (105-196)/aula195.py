@@ -1,5 +1,24 @@
 import os
+import json
 
+
+def ler(tarefas, caminho_arquivo):
+    dados = []
+    try:
+        with open(caminho_arquivo, 'r', encoding= 'utf-8') as arquivo:
+            dados = json.load(arquivo)
+    except FileNotFoundError:
+        print(f'Arquivo {caminho_arquivo} não encontrado.')
+        salvar(tarefas, caminho_arquivo)
+    return dados
+
+
+def salvar(tarefas, caminho_arquivo):
+    dados = tarefas
+    with open(caminho_arquivo, 'w', encoding='utf-8') as arquivo:
+        json.dump(dados, arquivo, ensure_ascii=False, indent=2)
+        return dados
+    
 
 def listar(tarefas):
     print()
@@ -50,9 +69,11 @@ def adicionar(tarefa, tarefas):
     print()
     listar(tarefas)
 
-
-tarefas = []
+CAMINHO_ARQUIVO = 'tarefas.json'
+tarefas = ler([], CAMINHO_ARQUIVO)
 tarefas_refazer = []
+
+
 
 while True:
     print('Comandos: listar, desfazer e refazer')
@@ -68,3 +89,4 @@ while True:
     comando = comandos.get(tarefa) if comandos.get(tarefa) is not None else \
         comandos['adicionar']
     comando()
+    salvar(tarefas, CAMINHO_ARQUIVO)
