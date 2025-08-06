@@ -1,12 +1,35 @@
 #Abstração
+
+from pathlib import Path
+
+LOG_FILE = Path(__file__).parent / 'log.txt'
 class Log:
-    def log(self, msg):
+    def _log(self, msg):
         raise NotImplementedError("Implemente o método log")
     
+    def log_error(self, msg):
+        return self._log(f'Erro: {msg}')
+    
+    def log_success(self, msg):
+        return self._log(f'Sucesso: {msg}')
+    
 class LogFileMixin(Log):
-    def log(self, msg):
-        print(msg)
+    def _log(self, msg):
+        msg_formatada = f'{msg} ({self.__class__.__name__})'
+        print(f'Salvando no log: {msg_formatada}')
+        with open(LOG_FILE, 'a+') as arquivo:
+            arquivo.write(msg_formatada)
+            arquivo.write('\n')
+
+class LogFileMixin(Log):
+    def _log(self, msg):
+        print(f'{msg} ({self.__class__.__name__})')
     
 if __name__ == "__main__":
-    l = LogFileMixin()
-    l.log('Mensagem de log')
+    lp = LogFileMixin()
+    lp.log_error('mensagem do log error')
+    lp.log_success('Mensagem do log success')
+
+    lf = LogFileMixin()
+    lf.log_error('Mensagem de log error')
+    lf.log_success('Mensagem de log success')

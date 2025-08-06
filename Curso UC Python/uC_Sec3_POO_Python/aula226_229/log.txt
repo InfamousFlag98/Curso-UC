@@ -1,0 +1,6 @@
+Erro: Mensagem de log error LogFileMixin
+Sucesso: Mensagem de log success LogFileMixin
+Erro: Mensagem de log error LogFileMixin
+Sucesso: Mensagem de log success LogFileMixin
+Erro: Mensagem de log error LogFileMixin
+Sucesso: Mensagem de log success LogFileMixin
